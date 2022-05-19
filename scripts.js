@@ -1,5 +1,7 @@
-
-let humanChoice = window.prompt("Please select either:\nRock,\nPaper,\nScissors", "Enter your Choice Here!");
+let humanChoice;
+let computerChoice;
+let computerRounds = 0;
+let humanRounds = 0;
 
 function computerPlayerChoice () {
     computerChoice = Math.floor(Math.random() * 3) + 1;
@@ -17,10 +19,8 @@ function computerPlayerChoice () {
     }   
 }
 
-let computerChoice;
-computerChoice = computerPlayerChoice();
-
 function humanPlayerChoice() {
+    humanChoice = window.prompt("Please select either:\nRock,\nPaper,\nScissors", "Enter your Choice Here!");
     humanChoice = humanChoice.toLowerCase();
     if ((humanChoice != "rock") && (humanChoice != "paper") && (humanChoice != "scissors")) {
         window.alert("Your choice is invalid, please try again.");
@@ -32,7 +32,6 @@ function humanPlayerChoice() {
 }
 
 function gamePlay (humanChoice, computerChoice) {
-    humanPlayerChoice();
     console.log("The Computer Chose:");
     console.log(computerChoice)
     console.log("You Chose:");
@@ -43,9 +42,34 @@ function gamePlay (humanChoice, computerChoice) {
     else if (humanChoice != computerChoice){
         if ((humanChoice == "rock" && computerChoice == "scissors") || (humanChoice == "scissors" && computerChoice == "paper") || (humanChoice == "paper" && computerChoice == "rock")){
             window.alert("You win!");
+            humanRounds ++;
         }
         else {
         window.alert("You lose!");
+        computerRounds ++;
         }
     }
+}
+
+function game() {
+    for (let rounds = 0; rounds < 5; rounds ++) {
+        console.log("Round:");
+        console.log(rounds + 1);
+        humanChoice = humanPlayerChoice();
+        computerChoice = computerPlayerChoice();
+        gamePlay(humanChoice, computerChoice);
+    }
+
+    if (humanRounds > computerRounds) {
+        console.log("You win the game!");
+    }
+
+    else if (humanRounds == computerRounds) {
+        console.log("The game ended in a draw!");
+    }
+
+    else {
+        console.log("The Computer wins the game!");
+    }
+
 }
