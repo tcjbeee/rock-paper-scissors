@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src ="scripts.js"></script>
     <link rel ="stylesheet" href = "style.css">
     <title>Rock, Paper, Scissors</title>
 </head>
@@ -14,16 +13,33 @@
     </div>
 
     <div class = "container">
-        <p class = "gamedescription">Choose either Rock, Paper or Scissors.</p>
+        <p class = "gamedescription">Choose either Rock, Paper or Scissors. First to 5 rounds wins!
+        </p>
     </div>
 
     <div class = "buttoncontainer">
-        <button class = "gameButton">Rock</button>
-        <button class = "gameButton">Paper</button>
-        <button class = "gameButton">Scissors</button>
+        <button id ="rockButton">Rock</button>
+        <button id ="paperButton">Paper</button>
+        <button id ="scissorsButton">Scissors</button>
     </div>
-    <script>game();</script>
-</script>
+
+    <div class = "container">
+        <h2 id = "roundheader"></h2>
+        <h1 id = "winner"></h1>
+    </div>
+
+    <div class = "container">
+        <p id ="humanScore"></p>
+        <p id ="computerScore"></p>
+    </div>
+
+    <div class = "container">
+        <p id ="playerSelection"></p>
+        <p id ="computerSelection"></p>
+    </div>
+
+    <script src ="scripts.js"></script>
+    <!-- <script>game();</script> (This is used when the UI is not present.)-->
     
     
 </body>
